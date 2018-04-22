@@ -1,6 +1,6 @@
 p6df::modules::shell::version() { echo "0.0.1" }
 p6df::modules::shell::deps()    { 
-	ModuleDeps=()
+	ModuleDeps=(robbyrussell/oh-my-zsh:plugins/encode64)
 }
 
 p6df::modules::shell::external::brew() {
@@ -30,6 +30,40 @@ irc () {
 
 p6df::modules::shell::init() {
 
+  alias '_'='sudo'
+  alias rmrf='rm -rf'
+  alias cpr='cp -R'
+  alias mvf='mv -f'
+  alias bclq='bc -lq'
+  alias grepr='grep -R'
+
+  alias j='jobs -l'
+  alias h='history 25'
+  alias duh='du -h'
+  alias history='fc -l 1'
+
+  alias 256color="export TERM=xterm-256color"
+  alias prettyjson="python -mjson.tool"
+
+  alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+  alias whichlinux='uname -a; cat /etc/*release; cat /etc/issue'
+
+  alias flushdns='sudo dscacheutil -flushcache'
+  alias whotunes='lsof -r 2 -n -P -F n -c iTunes -a -i TCP@`hostname`:3689'
+
+  alias netstat='netstat -an -p tcp'
+  alias listen='netstat -an -p tcp | grep LISTEN'
+  alias listenu='netstat -an -p udp'
+  alias established='netstat -an -p tcp | grep ESTABLISHED'
+
+  alias tarx='tar -xvzof'
+  alias tart='tar -tvzf'
+
+  alias -g me="| grep $USER"
+  alias -g ng='| grep -v "\.git"'
+  alias -g n="| grep $NAME"
+
   alias irc_attach='tmux attach -t irc'
   alias irc_init='tmux new -s irc irssi'
 
@@ -40,3 +74,12 @@ p6df::modules::shell::init() {
   esac
 }
 
+proxy_off() {
+
+  local ev
+  for ev in `env |grep -i proxy`; do
+    e=$(echo $ev | cut -f 1 -d =)
+    echo $e
+    unset $e
+  done
+}
