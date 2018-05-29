@@ -63,6 +63,8 @@ p6df::modules::shell::aliases::init() {
   alias -g ng='| grep -v "\.git"'
   alias -g n="| grep $NAME"
 
+  alias pssh='p6_ssh_do'
+
   alias xclean='p6_xclean'
   alias proxy_off='p6df::modules::shell::proxy::off'
 
