@@ -79,8 +79,9 @@ p6df::modules::shell::aliases::init() {
   esac
 }
 
+## IRC can be a repo/lib
 p6df::modules::shell::irc::attach() {
-  
+
   tmux attach -t irc
 }
 
@@ -90,6 +91,7 @@ p6df::modules::shell::irc::init() {
 }
 
 p6df::modules::shell::irc() {
+
   if ! irc_attach ; then
     irc_init
   fi
@@ -98,12 +100,13 @@ p6df::modules::shell::irc() {
 p6df::prompt::proxy::line() {
 
   if [ -n "${ALL_PROXY}" ]; then
-      echo "proxy:\tALL_PROXY=$ALL_PROXY"
+    echo "proxy:\tALL_PROXY=$ALL_PROXY"
   fi
 }
 
 p6df::modules::shell::proxy::off() {
 
+  # XXX: move to lib
   local ev
   for ev in `env |grep -i ^proxy`; do
     e=$(echo $ev | cut -f 1 -d =)
