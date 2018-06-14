@@ -77,6 +77,9 @@ p6df::modules::shell::aliases::init() {
 	freebsd*|darwin*) alias ll='ls -alFGTh' ;;
 		       *) alias ll='/bin/ls -alFh --color=auto' ;;
   esac
+
+  # XXX: not here
+  zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 }
 
 ## IRC can be a repo/lib
