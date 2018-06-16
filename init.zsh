@@ -18,7 +18,6 @@ p6df::modules::shell::external::brew() {
   brew install wget
   brew install xz
 
-  brew install irssi
   brew install youtube-dl
 }
 
@@ -68,10 +67,6 @@ p6df::modules::shell::aliases::init() {
   alias xclean='p6_xclean'
   alias proxy_off='p6df::modules::shell::proxy::off'
 
-  alias irc='p6df::modules::shell::irc'
-  alias irc_attach='p6df::modules::shell::irc::attach'
-  alias irc_init='p6df::modules::shell::irc::init'
-
   export LSCOLORS=Gxfxcxdxbxegedabagacad
   case "$OSTYPE" in
 	freebsd*|darwin*) alias ll='ls -alFGTh' ;;
@@ -80,24 +75,6 @@ p6df::modules::shell::aliases::init() {
 
   # XXX: not here
   zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-}
-
-## IRC can be a repo/lib
-p6df::modules::shell::irc::attach() {
-
-  tmux attach -t irc
-}
-
-p6df::modules::shell::irc::init() {
-
-  tmux new -s irc irssi
-}
-
-p6df::modules::shell::irc() {
-
-  if ! irc_attach ; then
-    irc_init
-  fi
 }
 
 p6df::prompt::proxy::line() {
