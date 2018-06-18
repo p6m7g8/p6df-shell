@@ -21,6 +21,11 @@ p6df::modules::shell::external::brew() {
   brew install youtube-dl
 }
 
+p6df::modules::shell::home::symlink() {
+
+  # XXX: TODO
+}
+
 p6df::modules::shell::init() {
 
   p6df::modules::shell::aliases::init
