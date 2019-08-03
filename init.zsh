@@ -12,6 +12,7 @@ p6df::modules::shell::external::brew() {
   brew install coreutils
   brew install curl
   brew install jq
+  brew install yq
   brew install screen
   brew install tmux
   brew install tree
@@ -70,6 +71,7 @@ p6df::modules::shell::aliases::init() {
   alias pssh='p6_remote_ssh_do'
 
   alias xclean='p6_xclean'
+  alias replace='p6df::modules::shell:replace'
   alias proxy_off='p6df::modules::shell::proxy::off'
 
   export LSCOLORS=Gxfxcxdxbxegedabagacad
@@ -80,6 +82,16 @@ p6df::modules::shell::aliases::init() {
 
   # XXX: not here
   zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+}
+
+p6df::modules::shell:replace() {
+    local from="$1"
+    local to="$2"
+
+    find . -type f | \
+	egrep -v '/.git/|/elpa/' | \
+	xargs grep -l $from | \
+	xargs perl -pi -e "s,$from,$to,g"
 }
 
 p6df::prompt::proxy::line() {
