@@ -12,6 +12,7 @@ p6df::modules::shell::external::brew() {
   brew install coreutils
   brew install curl
   brew install jq
+  brew install parallel
   brew install yq
   brew install screen
   brew install tmux
