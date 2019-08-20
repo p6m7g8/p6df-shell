@@ -81,8 +81,17 @@ p6df::modules::shell::aliases::init() {
 		       *) alias ll='/bin/ls -alFh --color=auto' ;;
   esac
 
+  alias ssh_key_check=p6_GLOBAL_ssh_key_check
+
   # XXX: not here
   zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+}
+
+p6_GLOBAL_ssh_key_check() {
+    local priv="$1"
+    local test_pub="$2"
+
+    diff <( ssh-keygen -y -e -f "$priv" ) <( ssh-keygen -y -e -f "$test_pub" )
 }
 
 p6df::modules::shell:replace() {
