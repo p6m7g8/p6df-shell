@@ -1,6 +1,9 @@
 p6df::modules::shell::version() { echo "0.0.1" }
 p6df::modules::shell::deps()    {
-	ModuleDeps=(robbyrussell/oh-my-zsh:plugins/encode64)
+	ModuleDeps=(
+		robbyrussell/oh-my-zsh:plugins/encode64
+		junegunn/fzf
+	)
 }
 
 p6df::modules::shell::external::brew() {
@@ -29,6 +32,9 @@ p6df::modules::shell::home::symlink() {
 }
 
 p6df::modules::shell::init() {
+
+#  zgen load junegunn/fzf shell # completions
+#  : prompt_opts+=(cr percent sp subst)
 
   p6df::modules::shell::aliases::init
 }
