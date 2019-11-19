@@ -3,6 +3,7 @@ p6df::modules::shell::deps()    {
 	ModuleDeps=(
 		robbyrussell/oh-my-zsh:plugins/encode64
 		junegunn/fzf
+		p6m7g8/p6shell
 	)
 }
 
