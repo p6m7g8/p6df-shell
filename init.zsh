@@ -106,6 +106,11 @@ p6df::modules::shell:replace() {
 
 p6df::prompt::proxy::line() {
 
+  p6_prompt_proxy_info
+}
+
+p6_proxy_prompt_info() {
+
   if [ -n "${ALL_PROXY}" ]; then
     echo "proxy:\tALL_PROXY=$ALL_PROXY"
   fi
