@@ -14,17 +14,24 @@ p6df::modules::shell::external::brew() {
 
   brew install aspell
   brew install coreutils
-  brew install curl
-  brew install jq
   brew install parallel
+
+  brew install shellcheck
+  brew install bats
+
+  brew install jq
   brew install yq
+
   brew install screen
   brew install tmux
-  brew install tree
-  brew install wget
-  brew install xz
 
+  brew install tree
+
+  brew install curl
+  brew install wget
   brew install youtube-dl
+
+  brew install xz
 }
 
 p6df::modules::shell::home::symlink() {
