@@ -1,4 +1,18 @@
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::version()
+#
+#>
+######################################################################
 p6df::modules::shell::version() { echo "0.0.1" }
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::deps()
+#
+#>
+######################################################################
 p6df::modules::shell::deps()    {
 	ModuleDeps=(
 		robbyrussell/oh-my-zsh:plugins/encode64
@@ -7,6 +21,13 @@ p6df::modules::shell::deps()    {
 	)
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::external::brew()
+#
+#>
+######################################################################
 p6df::modules::shell::external::brew() {
 
   brew tap sbdchd/skim
@@ -34,11 +55,25 @@ p6df::modules::shell::external::brew() {
   brew install xz
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::home::symlink()
+#
+#>
+######################################################################
 p6df::modules::shell::home::symlink() {
 
   # XXX: TODO
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::init()
+#
+#>
+######################################################################
 p6df::modules::shell::init() {
 
 #  zgen load junegunn/fzf shell # completions
@@ -47,6 +82,13 @@ p6df::modules::shell::init() {
   p6df::modules::shell::aliases::init
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::aliases::init()
+#
+#>
+######################################################################
 p6df::modules::shell::aliases::init() {
 
   alias '_'='sudo'
@@ -101,6 +143,17 @@ p6df::modules::shell::aliases::init() {
   zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell:replace(from, to)
+#
+#  Args:
+#	from - 
+#	to - 
+#
+#>
+######################################################################
 p6df::modules::shell:replace() {
     local from="$1"
     local to="$2"
@@ -111,11 +164,25 @@ p6df::modules::shell:replace() {
 	xargs perl -pi -e "s,$from,$to,g"
 }
 
+######################################################################
+#<
+#
+# Function: p6df::prompt::proxy::line()
+#
+#>
+######################################################################
 p6df::prompt::proxy::line() {
 
   p6_prompt_proxy_info
 }
 
+######################################################################
+#<
+#
+# Function: p6_proxy_prompt_info()
+#
+#>
+######################################################################
 p6_proxy_prompt_info() {
 
   if [ -n "${ALL_PROXY}" ]; then
@@ -123,6 +190,13 @@ p6_proxy_prompt_info() {
   fi
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::proxy::off()
+#
+#>
+######################################################################
 p6df::modules::shell::proxy::off() {
 
   # XXX: move to lib
