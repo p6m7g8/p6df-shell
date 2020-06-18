@@ -17,6 +17,7 @@ p6df::modules::shell::deps()    {
 	ModuleDeps=(
 		robbyrussell/oh-my-zsh:plugins/encode64
 		junegunn/fzf
+    lotabout/skim
 		p6m7g8/p6shell
 	)
 }
@@ -76,9 +77,12 @@ p6df::modules::shell::home::symlink() {
 ######################################################################
 p6df::modules::shell::init() {
 
-#  zgen load junegunn/fzf shell # completions
-#  : prompt_opts+=(cr percent sp subst)
+  # zgen load junegunn/fzf shell # completions
+  # : prompt_opts+=(cr percent sp subst)
 
+  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
+  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completionz.zsh
+  
   p6df::modules::shell::aliases::init
 }
 
