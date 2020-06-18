@@ -81,7 +81,7 @@ p6df::modules::shell::init() {
   # : prompt_opts+=(cr percent sp subst)
 
   . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
-  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completionz.zsh
+  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completions.zsh
   
   p6df::modules::shell::aliases::init
 }
