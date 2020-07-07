@@ -17,7 +17,7 @@ p6df::modules::shell::deps()    {
 	ModuleDeps=(
 		robbyrussell/oh-my-zsh:plugins/encode64
 		junegunn/fzf
-    lotabout/skim
+		lotabout/skim
 		p6m7g8/p6shell
 	)
 }
@@ -81,7 +81,7 @@ p6df::modules::shell::init() {
   # : prompt_opts+=(cr percent sp subst)
 
   . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
-  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completionz.zsh
+  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completion.zsh
   
   p6df::modules::shell::aliases::init
 }
@@ -177,7 +177,7 @@ p6df::modules::shell:replace() {
 ######################################################################
 p6df::prompt::proxy::line() {
 
-  p6_prompt_proxy_info
+  p6_proxy_prompt_info
 }
 
 ######################################################################
@@ -189,8 +189,8 @@ p6df::prompt::proxy::line() {
 ######################################################################
 p6_proxy_prompt_info() {
 
-  if [ -n "${ALL_PROXY}" ]; then
-    echo "proxy:\tALL_PROXY=$ALL_PROXY"
+  if ! p6_string_blank "${ALL_PROXY}"; then
+    p6_return_str "proxy:\tALL_PROXY=$ALL_PROXY"
   fi
 }
 
@@ -205,7 +205,7 @@ p6df::modules::shell::proxy::off() {
 
   # XXX: move to lib
   local ev
-  for ev in `env |grep -i ^proxy`; do
+  for ev in `env |grep -i proxy=`; do
     e=$(echo $ev | cut -f 1 -d =)
     echo $e
     unset $e
