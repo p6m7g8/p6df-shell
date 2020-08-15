@@ -44,6 +44,8 @@ p6df::modules::shell::external::brew() {
   brew install jq
   brew install yq
 
+  brew install recode
+
   brew install screen
   brew install tmux
 
