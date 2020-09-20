@@ -185,14 +185,18 @@ p6df::prompt::proxy::line() {
 ######################################################################
 #<
 #
-# Function: p6_proxy_prompt_info()
+# Function: str str = p6_proxy_prompt_info()
+#
+#  Returns:
+#	str - str
 #
 #>
 ######################################################################
 p6_proxy_prompt_info() {
 
   if ! p6_string_blank "${ALL_PROXY}"; then
-    p6_return_str "proxy:\t  ALL_PROXY=$ALL_PROXY"
+    local str="proxy:\t  ALL_PROXY=$ALL_PROXY"
+    p6_return_str "$str"
   fi
 }
 
