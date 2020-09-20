@@ -192,7 +192,7 @@ p6df::prompt::proxy::line() {
 p6_proxy_prompt_info() {
 
   if ! p6_string_blank "${ALL_PROXY}"; then
-    p6_return_str "proxy:\tALL_PROXY=$ALL_PROXY"
+    p6_return_str "proxy:\t  ALL_PROXY=$ALL_PROXY"
   fi
 }
 
