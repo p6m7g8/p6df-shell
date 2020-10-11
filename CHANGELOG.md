@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/p6m7g8/p6df-shell/compare/v1.0.1...v2.0.0) (2020-10-11)
+
+
+### Bug Fixes
+
+* **deps:** fix depends ([#12](https://github.com/p6m7g8/p6df-shell/issues/12)) ([9646582](https://github.com/p6m7g8/p6df-shell/commit/96465827458cf2d5b59e0cf2906e12a18d00e409))
+* **module:** robbyrussell -> ohmyzsh ([#11](https://github.com/p6m7g8/p6df-shell/issues/11)) ([ec92205](https://github.com/p6m7g8/p6df-shell/commit/ec9220598e3cc1d43051ba73407c9bba63cafd1d))
+
 ### [1.0.1](https://github.com/p6m7g8/p6df-shell/compare/v1.0.0...v1.0.1) (2020-09-20)
 
 
