@@ -15,10 +15,10 @@ p6df::modules::shell::version() { echo "0.0.1" }
 ######################################################################
 p6df::modules::shell::deps()    {
 	ModuleDeps=(
+		p6m7g8/p6shell
 		ohmyzsh/ohmyzsh:plugins/encode64
 		junegunn/fzf
 		lotabout/skim
-		p6m7g8/p6shell
 	)
 }
 
