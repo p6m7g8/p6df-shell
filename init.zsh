@@ -147,8 +147,8 @@ p6df::modules::shell::aliases::init() {
 # Function: p6df::modules::shell:replace(from, to)
 #
 #  Args:
-#	from - 
-#	to - 
+#	from -
+#	to -
 #
 #>
 ######################################################################
