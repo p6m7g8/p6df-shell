@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/p6m7g8/p6df-shell/compare/v2.0.0...v2.1.0) (2020-12-06)
+
+
+### Features
+
+* **api:** centralize ::version() ([58d5ccc](https://github.com/p6m7g8/p6df-shell/commit/58d5ccc91579d61f704b61ea0ae4533e1ae04253))
+* **community:** adds CODE_OF_CONDUCT ([613b24e](https://github.com/p6m7g8/p6df-shell/commit/613b24e8b54a2f0e2f1e6d99c51441ad7003653f))
+* **github:** adds ISSUE_TEMPLATEs ([95f59da](https://github.com/p6m7g8/p6df-shell/commit/95f59daed9f4ec047b1b62e45ae0a7054888620e))
+
+
+* **community:** rely on the .github/ in the org ([#19](https://github.com/p6m7g8/p6df-shell/issues/19)) ([9ba26a3](https://github.com/p6m7g8/p6df-shell/commit/9ba26a341ad09011ead0588410bd49446b9c46a5))
+* **docs:** fixes whitespace ([551114d](https://github.com/p6m7g8/p6df-shell/commit/551114d50dcb7181a14f15ec94c54208cca1800b))
+* **README:** fixes module expansion, adds CodeCov and Synk badges ([#20](https://github.com/p6m7g8/p6df-shell/issues/20)) ([b8c7778](https://github.com/p6m7g8/p6df-shell/commit/b8c777891591a15a1d8a57ed1632f585654ff6f2))
+* **README:** updates to template v2.0 ([001cee8](https://github.com/p6m7g8/p6df-shell/commit/001cee873a640db40fd6f17390de5728fecb7940))
+* **semantic:** no longer needed, defaults are fine ([82a85a8](https://github.com/p6m7g8/p6df-shell/commit/82a85a8aca73bc00fef2fcca3cf5c26ca13a526b))
+
 ## [2.0.0](https://github.com/p6m7g8/p6df-shell/compare/v1.0.1...v2.0.0) (2020-10-11)
 
 
