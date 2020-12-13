@@ -31,7 +31,12 @@ p6df::modules::shell::external::brew() {
   brew install parallel
 
   brew install shellcheck
-  brew install bats
+
+  brew tap kaos/shell
+  brew install bats-core
+  brew install bats-file
+  brew install bats-assert
+  brew install bats-detik
 
   brew install jq
   brew install yq
