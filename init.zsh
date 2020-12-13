@@ -5,13 +5,13 @@
 #
 #>
 ######################################################################
-p6df::modules::shell::deps()    {
-	ModuleDeps=(
-		p6m7g8/p6shell
-		ohmyzsh/ohmyzsh:plugins/encode64
-		junegunn/fzf
-		lotabout/skim
-	)
+p6df::modules::shell::deps() {
+  ModuleDeps=(
+    p6m7g8/p6shell
+    ohmyzsh/ohmyzsh:plugins/encode64
+    junegunn/fzf
+    lotabout/skim
+  )
 }
 
 ######################################################################
@@ -81,7 +81,7 @@ p6df::modules::shell::init() {
 
   . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
   . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completion.zsh
-  
+
   p6df::modules::shell::aliases::init
 }
 
@@ -136,8 +136,8 @@ p6df::modules::shell::aliases::init() {
 
   export LSCOLORS=Gxfxcxdxbxegedabagacad
   case "$OSTYPE" in
-	freebsd*|darwin*) alias ll='ls -alFGTh' ;;
-		       *) alias ll='/bin/ls -alFh --color=auto' ;;
+  freebsd* | darwin*) alias ll='ls -alFGTh' ;;
+  *) alias ll='/bin/ls -alFh --color=auto' ;;
   esac
 
   alias ssh_key_check=p6_ssh_key_check
@@ -158,23 +158,23 @@ p6df::modules::shell::aliases::init() {
 #>
 ######################################################################
 p6df::modules::shell:replace() {
-    local from="$1"
-    local to="$2"
+  local from="$1"
+  local to="$2"
 
-    find . -type f | \
-	egrep -v '/.git/|/elpa/' | \
-	xargs grep -l $from | \
-	xargs perl -pi -e "s,$from,$to,g"
+  find . -type f |
+    egrep -v '/.git/|/elpa/' |
+    xargs grep -l $from |
+    xargs perl -pi -e "s,$from,$to,g"
 }
 
 ######################################################################
 #<
 #
-# Function: p6df::prompt::proxy::line()
+# Function: p6df::modules::shell::proxy::prompt::line()
 #
 #>
 ######################################################################
-p6df::prompt::proxy::line() {
+p6df::modules::shell::proxy::prompt::line() {
 
   p6_proxy_prompt_info
 }
@@ -191,9 +191,22 @@ p6df::prompt::proxy::line() {
 ######################################################################
 p6_proxy_prompt_info() {
 
-  if ! p6_string_blank "${ALL_PROXY}"; then
-    local str="proxy:\t  ALL_PROXY=$ALL_PROXY"
+  local __p6_lf="
+"
+  local pair
+  local str
+  for pair in $(env | grep _PROXY=); do
+    if p6_string_blank "$str"; then
+      str="proxy:\t  $pair"
+    else
+      str=$(p6_string_append "$str" "proxy:\t  $pair" "$__p6_lf")
+    fi
+  done
+
+  if ! p6_string_blank "$str"; then
     p6_return_str "$str"
+  else
+    p6_return_void
   fi
 }
 
@@ -208,7 +221,7 @@ p6df::modules::shell::proxy::off() {
 
   # XXX: move to lib
   local ev
-  for ev in `env |grep -i proxy=`; do
+  for ev in $(env | grep -i proxy=); do
     e=$(echo $ev | cut -f 1 -d =)
     echo $e
     unset $e
