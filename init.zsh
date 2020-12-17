@@ -9,8 +9,9 @@ p6df::modules::shell::deps() {
   ModuleDeps=(
     p6m7g8/p6shell
     ohmyzsh/ohmyzsh:plugins/encode64
-    junegunn/fzf
-    lotabout/skim
+    samoshkin/tmux-config
+    #    junegunn/fzf
+    #    lotabout/skim
   )
 }
 
@@ -23,8 +24,8 @@ p6df::modules::shell::deps() {
 ######################################################################
 p6df::modules::shell::external::brew() {
 
-  brew tap sbdchd/skim
-  brew install skim
+  #  brew tap sbdchd/skim
+  #  brew install skim
 
   brew install aspell
   brew install coreutils
@@ -79,8 +80,8 @@ p6df::modules::shell::init() {
   # zgen load junegunn/fzf shell # completions
   # : prompt_opts+=(cr percent sp subst)
 
-  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
-  . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completion.zsh
+  # . $P6_DFZ_SRC_DIR/lotabout/skim/shell/key-bindings.zsh
+  # . $P6_DFZ_SRC_DIR/lotabout/skim/shell/completion.zsh
 
   p6df::modules::shell::aliases::init
 }
@@ -226,4 +227,86 @@ p6df::modules::shell::proxy::off() {
     echo $e
     unset $e
   done
+}
+
+######################################################################
+#<
+#
+# Function: code rc = p6_shell_tmux_cmd(cmd, ...)
+#
+#  Args:
+#	cmd -
+#	... - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
+p6_shell_tmux_cmd() {
+  local cmd="$1"
+  shift 1
+
+  local log_type
+  case $cmd in
+  *) log_type=p6_run_write_cmd ;;
+  esac
+
+  p6_run_code "$log_type tmux $cmd $*"
+  local rc=$?
+
+  p6_return_code_as_code "$rc"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::tmux::new(session, cmd)
+#
+#  Args:
+#	session -
+#	cmd -
+#
+#>
+######################################################################
+p6df::modules::shell::tmux::new() {
+  local session="$1"
+  local cmd="$2"
+
+  p6_shell_tmux_cmd "new -s \"$session\" $cmd"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::tmux::attach(session)
+#
+#  Args:
+#	session -
+#
+#>
+######################################################################
+p6df::modules::shell::tmux::attach() {
+  local session="$1"
+
+  p6_shell_tmux_cmd "attach -d -t \"$session\""
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::tmux::make(session, cmd)
+#
+#  Args:
+#	session -
+#	cmd -
+#
+#>
+######################################################################
+p6df::modules::shell::tmux::make() {
+  local session="$1"
+  local cmd="$2"
+
+  p6df::modules::shell::tmux::attach "$session" ||
+    p6df::modules::shell::tmux::new "$session" "$cmd"
 }
