@@ -59,8 +59,18 @@ p6df::modules::shell::external::brew() {
 
   brew install xz
 
-  brew install bat
   brew install z
+
+  brew install htop
+  brew install lsof
+  brew install bgrep
+  brew install cgrep
+  brew install grepcidr
+  brew install ngrep
+  brew install pgrep
+  brew install pdfgrep
+  brew install psgrep
+  brew install ripgrep-all
 }
 
 ######################################################################
