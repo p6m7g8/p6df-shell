@@ -49,11 +49,18 @@ p6df::modules::shell::external::brew() {
 
   brew install tree
 
+  brew install aria2
   brew install curl
   brew install wget
+  brew install httpie
+  brew install mtr
+
   brew install youtube-dl
 
   brew install xz
+
+  brew install bat
+  brew install z
 }
 
 ######################################################################
