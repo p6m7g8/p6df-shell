@@ -38,9 +38,11 @@
 
 - [Change Log](CHANGELOG.md)
 
-### Usage
+## Usage
 
-#### init.zsh:
+### p6df-shell:
+
+#### p6df-shell/init.zsh:
 
 - code rc = p6_shell_tmux_cmd(cmd, ...)
 - p6df::modules::shell::aliases::init()
