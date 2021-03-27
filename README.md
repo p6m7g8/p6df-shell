@@ -48,7 +48,6 @@
 - p6df::modules::shell::aliases::init()
 - p6df::modules::shell::deps()
 - p6df::modules::shell::external::brew()
-- p6df::modules::shell::home::symlink()
 - p6df::modules::shell::init()
 - p6df::modules::shell::proxy::off()
 - p6df::modules::shell::proxy::prompt::line()
@@ -57,6 +56,7 @@
 - p6df::modules::shell::tmux::new(session, cmd)
 - p6df::modules::shell:replace(from, to)
 - str str = p6_proxy_prompt_info()
+
 
 
 ## Author
