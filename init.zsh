@@ -18,6 +18,22 @@ p6df::modules::shell::deps() {
 ######################################################################
 #<
 #
+# Function: p6df::modules::shell::vscodes()
+#
+#>
+######################################################################
+p6df::modules::shell::vscodes() {
+
+  # shell
+  brew install shfmt
+  code --install-extension timonwong.shellcheck
+  code --install-extension foxundermoon.shell-format
+  code --install-extension jetmartin.bats
+}
+
+######################################################################
+#<
+#
 # Function: p6df::modules::shell::external::brew()
 #
 #>
@@ -78,6 +94,7 @@ p6df::modules::shell::external::brew() {
 #
 # Function: p6df::modules::shell::init()
 #
+#  Environment:	 P6_DFZ_SRC_DIR
 #>
 ######################################################################
 p6df::modules::shell::init() {
@@ -96,6 +113,7 @@ p6df::modules::shell::init() {
 #
 # Function: p6df::modules::shell::aliases::init()
 #
+#  Environment:	 ESTABLISHED FGT LISTEN LSCOLORS NAME OSTYPE TCP TERM USER XXX
 #>
 ######################################################################
 p6df::modules::shell::aliases::init() {
@@ -178,6 +196,7 @@ p6df::modules::shell:replace() {
 #
 # Function: p6df::modules::shell::proxy::prompt::line()
 #
+#  Depends:	 p6_proxy
 #>
 ######################################################################
 p6df::modules::shell::proxy::prompt::line() {
@@ -193,6 +212,8 @@ p6df::modules::shell::proxy::prompt::line() {
 #  Returns:
 #	str - str
 #
+#  Depends:	 p6_string
+#  Environment:	 _PROXY
 #>
 ######################################################################
 p6_proxy_prompt_info() {
@@ -221,6 +242,7 @@ p6_proxy_prompt_info() {
 #
 # Function: p6df::modules::shell::proxy::off()
 #
+#  Environment:	 XXX
 #>
 ######################################################################
 p6df::modules::shell::proxy::off() {
@@ -246,6 +268,7 @@ p6df::modules::shell::proxy::off() {
 #  Returns:
 #	code - rc
 #
+#  Depends:	 p6_run
 #>
 ######################################################################
 p6_shell_tmux_cmd() {

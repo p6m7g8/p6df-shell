@@ -54,6 +54,7 @@
 - p6df::modules::shell::tmux::attach(session)
 - p6df::modules::shell::tmux::make(session, cmd)
 - p6df::modules::shell::tmux::new(session, cmd)
+- p6df::modules::shell::vscodes()
 - p6df::modules::shell:replace(from, to)
 - str str = p6_proxy_prompt_info()
 
