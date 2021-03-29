@@ -56,7 +56,8 @@ p6df::modules::shell::external::brew() {
   brew install bats-detik
 
   brew install jq
-  brew install yq
+  brew install yq@3
+  p6df::util::path::if "/usr/local/opt/yq@3/bin"
 
   brew install recode
 
