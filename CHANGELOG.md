@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/p6m7g8/p6df-shell/compare/v2.1.0...v2.1.1) (2021-04-04)
+
+
+### Features
+
+* **api:** + many ([#23](https://github.com/p6m7g8/p6df-shell/issues/23)) ([700daa3](https://github.com/p6m7g8/p6df-shell/commit/700daa35e2f466b20b6c29f68a8e3d4f4861adaa))
+* **brew:** track bats -> bats-core ([#21](https://github.com/p6m7g8/p6df-shell/issues/21)) ([ed0cef6](https://github.com/p6m7g8/p6df-shell/commit/ed0cef66df037fdc0a39faa5230246a0e388d0b5))
+* **deps:** adds aria2, httpie, mtr, bat, z ([#24](https://github.com/p6m7g8/p6df-shell/issues/24)) ([5d16915](https://github.com/p6m7g8/p6df-shell/commit/5d1691532d599a32145286a7d19c19aec677b721))
+* **deps:** adds greps, htop, lsof, moves bat->darwin ([#25](https://github.com/p6m7g8/p6df-shell/issues/25)) ([283b549](https://github.com/p6m7g8/p6df-shell/commit/283b549e0ebeb6f7a051909b9438386b77987144))
+* **proxy:** prompt - show all envs ([#22](https://github.com/p6m7g8/p6df-shell/issues/22)) ([ce47469](https://github.com/p6m7g8/p6df-shell/commit/ce4746911aba05eac31d1ab71210d046cb6c1151))
+
+
+* **link:** remove rendundant symlinks; echo for now ([#27](https://github.com/p6m7g8/p6df-shell/issues/27)) ([605ff93](https://github.com/p6m7g8/p6df-shell/commit/605ff936e4e123d50836ac686fedfa9cfa46bf47))
+* **README:** updates generator ([#26](https://github.com/p6m7g8/p6df-shell/issues/26)) ([132a3b0](https://github.com/p6m7g8/p6df-shell/commit/132a3b03771a60849a8e7c76992b56174e75b603))
+* **vscode:** splits vscode extensions to their languages ([#28](https://github.com/p6m7g8/p6df-shell/issues/28)) ([3f12bfc](https://github.com/p6m7g8/p6df-shell/commit/3f12bfc6193fbb40f3cf90537dfd1fcfc2b150e9))
+* Coc -> .github ([2a33ebc](https://github.com/p6m7g8/p6df-shell/commit/2a33ebc9f5e254edf63a6baa45d4e32aab020a38))
+
 ## [2.1.0](https://github.com/p6m7g8/p6df-shell/compare/v2.0.0...v2.1.0) (2020-12-06)
 
 
