@@ -18,6 +18,31 @@ p6df::modules::shell::deps() {
 ######################################################################
 #<
 #
+# Function: p6df::modules::shell::external::yum()
+#
+#>
+######################################################################
+p6df::modules::shell::external::yum() {
+
+  sudo amazon-linux-extras install epel
+  sudo yum install ShellCheck
+
+  wget https://github.com/mikefarah/yq/releases/download/v4.6.3/yq_linux_amd64.tar.gz -O - | tar xz
+  sudo mv yq_linux_amd64 /usr/bin/yq
+
+  sudo yum install jq
+  sudo yum install recode
+  sudo yum install screen
+  sudo yum install tmux
+  sudo yum install tree
+  sudo yum install curl
+  sudo yum install wget
+  sudo yum install lsof
+}
+
+######################################################################
+#<
+#
 # Function: p6df::modules::shell::vscodes()
 #
 #>
@@ -179,6 +204,7 @@ p6df::modules::shell::aliases::init() {
 #	from -
 #	to -
 #
+#  Depends:	 p6_proxy
 #>
 ######################################################################
 p6df::modules::shell:replace() {
@@ -196,7 +222,7 @@ p6df::modules::shell:replace() {
 #
 # Function: p6df::modules::shell::proxy::prompt::line()
 #
-#  Depends:	 p6_proxy
+#  Depends:	 p6_proxy p6_string
 #>
 ######################################################################
 p6df::modules::shell::proxy::prompt::line() {
@@ -242,6 +268,7 @@ p6_proxy_prompt_info() {
 #
 # Function: p6df::modules::shell::proxy::off()
 #
+#  Depends:	 p6_run
 #  Environment:	 XXX
 #>
 ######################################################################
