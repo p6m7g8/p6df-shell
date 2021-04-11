@@ -9,10 +9,25 @@ p6df::modules::shell::deps() {
   ModuleDeps=(
     p6m7g8/p6shell
     ohmyzsh/ohmyzsh:plugins/encode64
+    ohmyzsh/ohmyzsh:plugins/nmap
     samoshkin/tmux-config
     #    junegunn/fzf
     #    lotabout/skim
   )
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::shell::external:::home::symlink()
+#
+#  Environment:	 P6_DFZ_SRC_DIR
+#>
+######################################################################
+p6df::modules::shell::external:::home::symlink() {
+
+  echo ln -fs $P6_DFZ_SRC_DIR/$USER/home-private/gnupg .gnupg
+  ln -fs $P6_DFZ_SRC_DIR/$USER/home-private/gnupg .gnupg
 }
 
 ######################################################################
@@ -104,6 +119,7 @@ p6df::modules::shell::external::brew() {
 
   brew install htop
   brew install lsof
+
   brew install bgrep
   brew install cgrep
   brew install grepcidr
@@ -112,6 +128,17 @@ p6df::modules::shell::external::brew() {
   brew install pdfgrep
   brew install psgrep
   brew install ripgrep-all
+
+  brew install gpg
+  brew install gnupg2
+  brew install pass
+  brew install pinentry-mac
+  brew install nmap
+  brew install netcat
+  brew install vault
+
+  p6_return_void
+
 }
 
 ######################################################################
@@ -138,7 +165,8 @@ p6df::modules::shell::init() {
 #
 # Function: p6df::modules::shell::aliases::init()
 #
-#  Environment:	 ESTABLISHED FGT LISTEN LSCOLORS NAME OSTYPE TCP TERM USER XXX
+#  Depends:	 p6_proxy
+#  Environment:	 ESTABLISHED FGT LISTEN LSCOLORS OSTYPE TCP TERM USER XXX
 #>
 ######################################################################
 p6df::modules::shell::aliases::init() {
@@ -175,9 +203,6 @@ p6df::modules::shell::aliases::init() {
 
   alias -g me="| grep $USER"
   alias -g ng='| grep -v "\.git"'
-  alias -g n="| grep $NAME"
-
-  alias pssh='p6_remote_ssh_do'
 
   alias xclean='p6_xclean'
   alias replace='p6df::modules::shell:replace'
@@ -238,7 +263,7 @@ p6df::modules::shell::proxy::prompt::line() {
 #  Returns:
 #	str - str
 #
-#  Depends:	 p6_string
+#  Depends:	 p6_run p6_string
 #  Environment:	 _PROXY
 #>
 ######################################################################

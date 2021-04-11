@@ -47,6 +47,7 @@
 - code rc = p6_shell_tmux_cmd(cmd, ...)
 - p6df::modules::shell::aliases::init()
 - p6df::modules::shell::deps()
+- p6df::modules::shell::external:::home::symlink()
 - p6df::modules::shell::external::brew()
 - p6df::modules::shell::external::yum()
 - p6df::modules::shell::init()
