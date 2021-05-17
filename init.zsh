@@ -95,6 +95,8 @@ p6df::modules::shell::external::brew() {
   brew install bats-assert
   brew install bats-detik
 
+  brew install jc
+  brew install jp
   brew install jq
   brew install yq
 
